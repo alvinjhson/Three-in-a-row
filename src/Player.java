@@ -36,9 +36,15 @@ public class Player {
     public String getXo() {
         return xo;
     }
+    public void addTimesPLayed(){
+        this.timesPlayed++;
+    }
+    public void addWin(){
+        this.wins++;
+    }
 
     @Override
     public String toString(){
-        return "Player name: " + name + "\n" + "Your symbol is: " + xo + "\n" + getName() + " wins: " + wins + "\n" + "Times played: " + timesPlayed;
+        return "Player name: " + name + "\n" + "Your symbol is: " + xo + "\n" + "Wins: " + wins + "\n" + "Times played: " + timesPlayed;
     }
 }

@@ -11,6 +11,7 @@ public class Main {
         while (!meny.equals("6")) {
             game.addPlayer();
             game.threeInARow();
+            game.showPlayers();
             meny = sc.nextLine();
 
 
