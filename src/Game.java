@@ -24,6 +24,7 @@ public class Game {
         System.out.println(player2);
     }
     public void threeInARow(){
+        setTielsToZero();
             win = false;
             for (int i = 0; i < 9 && !win ;i++) {
                 if (i % 2 == 0) {
@@ -31,7 +32,7 @@ public class Game {
                     do {
 
                         Scanner scanner = new Scanner(System.in);
-                        System.out.println("Player 1, please make your move: ");
+                        System.out.println(player1.getName() + " please make your move: ");
                         int chose1 = scanner.nextInt();
                         player1.setTile(chose1);
                         if (player1.getTile() == 1 && threeInARow.getTile1() != 0) {
@@ -121,7 +122,7 @@ public class Game {
                     boolean validMove2;
                     do {
                         Scanner scanner = new Scanner(System.in);
-                        System.out.println("Player 2, please make your move: ");
+                        System.out.println(player2.getName() + " please make your move: ");
                         int chose2 = scanner.nextInt();
                         player2.setTile(chose2);
                         if (player2.getTile() == 1 && threeInARow.getTile1() != 0) {
@@ -215,6 +216,7 @@ public class Game {
     }
     public void showPlayers(){
         System.out.println(player1);
+        System.out.println("");
         System.out.println(player2);
     }
     public void tile1x() {
@@ -270,6 +272,17 @@ public class Game {
     }
     public void tile9O() {
         threeInARow.setTile9(7);
+    }
+    public void setTielsToZero(){
+        threeInARow.setTile1(0);
+        threeInARow.setTile2(0);
+        threeInARow.setTile3(0);
+        threeInARow.setTile4(0);
+        threeInARow.setTile5(0);
+        threeInARow.setTile6(0);
+        threeInARow.setTile7(0);
+        threeInARow.setTile8(0);
+        threeInARow.setTile9(0);
     }
 
 

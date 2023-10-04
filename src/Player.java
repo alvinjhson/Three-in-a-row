@@ -45,6 +45,6 @@ public class Player {
 
     @Override
     public String toString(){
-        return "Player name: " + name + "\n" + "Your symbol is: " + xo + "\n" + "Wins: " + wins + "\n" + "Times played: " + timesPlayed;
+        return "Player name: " + name + "\n" + "Your symbol is: " + xo + "\n" + "Wins: " + wins + "\n" + "Games played: " + timesPlayed;
     }
 }
