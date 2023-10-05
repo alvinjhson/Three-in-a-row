@@ -1,19 +1,15 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
-
     Scanner sc = new Scanner(System.in);
-    Grid gride = new Grid();
+    Grid gride;
     private boolean win;
-    Player player1 = new Player("player1","X",0,0,0);
-    Player player2 = new Player("player2","O",0,0,0);
+    Player player1 = new Player("player1","X",0,0,0,0);
+    Player player2 = new Player("player2","O",0,0,0,0);
     ThreeInARow threeInARow = new ThreeInARow(0,0,0,0,0,0,0,0,0);
-
-    public ThreeInARow getThreeInARow() {
-        return threeInARow;
+    public Game() {
+        gride = new Grid(this);
     }
-
     public void addPlayer() {
         System.out.println("Player1 what is your name:");
         player1.setName(sc.nextLine());
@@ -23,68 +19,66 @@ public class Game {
         System.out.println("");
         System.out.println(player2);
     }
-    public void threeInARow(){
+    public void threeInARow1(){
         setTielsToZero();
             win = false;
             for (int i = 0; i < 9 && !win ;i++) {
                 if (i % 2 == 0) {
                     boolean validMove;
                     do {
-
                         Scanner scanner = new Scanner(System.in);
                         System.out.println(player1.getName() + " please make your move: ");
                         int chose1 = scanner.nextInt();
-                        player1.setTile(chose1);
-                        if (player1.getTile() == 1 && threeInARow.getTile1() != 0) {
+                        player1.setScInput(chose1);
+                        if (player1.getScInput() == 1 && threeInARow.getTile1() != 0) {
                             validMove = false;
-                        } else if (player1.getTile() == 2 && threeInARow.getTile2() != 0) {
+                        } else if (player1.getScInput() == 2 && threeInARow.getTile2() != 0) {
                             validMove = false;
-                        } else if (player1.getTile() == 3 && threeInARow.getTile3() != 0) {
+                        } else if (player1.getScInput() == 3 && threeInARow.getTile3() != 0) {
                             validMove = false;
-                        } else if (player1.getTile() == 4 && threeInARow.getTile4() != 0) {
+                        } else if (player1.getScInput() == 4 && threeInARow.getTile4() != 0) {
                             validMove = false;
-                        } else if (player1.getTile() == 5 && threeInARow.getTile5() != 0) {
+                        } else if (player1.getScInput() == 5 && threeInARow.getTile5() != 0) {
                             validMove = false;
-                        } else if (player1.getTile() == 6 && threeInARow.getTile6() != 0) {
+                        } else if (player1.getScInput() == 6 && threeInARow.getTile6() != 0) {
                             validMove = false;
-                        } else if (player1.getTile() == 7 && threeInARow.getTile7() != 0) {
+                        } else if (player1.getScInput() == 7 && threeInARow.getTile7() != 0) {
                             validMove = false;
-                        } else if (player1.getTile() == 8 && threeInARow.getTile8() != 0) {
+                        } else if (player1.getScInput() == 8 && threeInARow.getTile8() != 0) {
                             validMove = false;
-                        } else if (player1.getTile() == 9 && threeInARow.getTile9() != 0) {
+                        } else if (player1.getScInput() == 9 && threeInARow.getTile9() != 0) {
                             validMove = false;
                         } else {
                             validMove = true;
                         }
                     } while (!validMove);
-
-                    if (player1.getTile() == 1 && threeInARow.getTile1() == 0  ){
-                        //gride.baseGrid8(player1);
+                    if (player1.getScInput() == 1 && threeInARow.getTile1() == 0  ){
                        tile1x();
-                    } if (player1.getTile() == 2 &&  threeInARow.getTile2() == 0 ){
-                        gride.baseGrid8(player1);
+                        gride.printGrid(player1);
+                    } if (player1.getScInput() == 2 &&  threeInARow.getTile2() == 0 ){
                         tile2x();
-                    } if (player1.getTile() == 3 &&  threeInARow.getTile3() == 0 ){
-                        gride.baseGrid8(player1);
+                        gride.printGrid(player1);
+                    } if (player1.getScInput() == 3 &&  threeInARow.getTile3() == 0 ){
                         tile3x();
-                    } if (player1.getTile() == 4 &&  threeInARow.getTile4() == 0 ){
-                        gride.baseGrid8(player1);
+                        gride.printGrid(player1);
+                    } if (player1.getScInput() == 4 &&  threeInARow.getTile4() == 0 ){
                         tile4x();
-                    }  if (player1.getTile() == 5 &&  threeInARow.getTile5() == 0 ){
-                        gride.baseGrid8(player1);
+                        gride.printGrid(player1);
+                    }  if (player1.getScInput() == 5 &&  threeInARow.getTile5() == 0 ){
                         tile5x();
-                    }  if (player1.getTile() == 6 &&  threeInARow.getTile6() == 0 ){
-                        gride.baseGrid8(player1);
+                        gride.printGrid(player1);
+                    }  if (player1.getScInput() == 6 &&  threeInARow.getTile6() == 0 ){
                         tile6x();
-                    }  if (player1.getTile() == 7 &&  threeInARow.getTile7() == 0 ){
-                        gride.baseGrid8(player1);
+                        gride.printGrid(player1);
+                    }  if (player1.getScInput() == 7 &&  threeInARow.getTile7() == 0 ){
                         tile7x();
-                    }  if (player1.getTile() == 8 &&  threeInARow.getTile8() == 0 ){
-                        gride.baseGrid8(player1);
-                       tile8x();
-                    }  if (player1.getTile() == 9 && threeInARow.getTile9() == 0){
-                        gride.baseGrid9(player1);
+                        gride.printGrid(player1);
+                    }  if (player1.getScInput() == 8 &&  threeInARow.getTile8() == 0 ){
+                        tile8x();
+                        gride.printGrid(player1);
+                    }  if (player1.getScInput() == 9 && threeInARow.getTile9() == 0){
                         tile9x();
+                        gride.printGrid(player1);
                     }  if (threeInARow.getTile8() + threeInARow.getTile7() + threeInARow.getTile9() == 6 ) {
                         System.out.println(player1.getName() + " Wins the game");
                         win = true;
@@ -124,51 +118,56 @@ public class Game {
                         Scanner scanner = new Scanner(System.in);
                         System.out.println(player2.getName() + " please make your move: ");
                         int chose2 = scanner.nextInt();
-                        player2.setTile(chose2);
-                        if (player2.getTile() == 1 && threeInARow.getTile1() != 0) {
+                        player2.setScInput(chose2);
+                        if (player2.getScInput() == 1 && threeInARow.getTile1() != 0) {
                             validMove2 = false;
-                        } else if (player2.getTile() == 2 && threeInARow.getTile2() != 0) {
+                        } else if (player2.getScInput() == 2 && threeInARow.getTile2() != 0) {
                             validMove2 = false;
-                        } else if (player2.getTile() == 3 && threeInARow.getTile3() != 0) {
+                        } else if (player2.getScInput() == 3 && threeInARow.getTile3() != 0) {
                             validMove2 = false;
-                        } else if (player2.getTile() == 4 && threeInARow.getTile4() != 0) {
+                        } else if (player2.getScInput() == 4 && threeInARow.getTile4() != 0) {
                             validMove2 = false;
-                        } else if (player2.getTile() == 5 && threeInARow.getTile5() != 0) {
+                        } else if (player2.getScInput() == 5 && threeInARow.getTile5() != 0) {
                             validMove2 = false;
-                        } else if (player2.getTile() == 6 && threeInARow.getTile6() != 0) {
+                        } else if (player2.getScInput() == 6 && threeInARow.getTile6() != 0) {
                             validMove2 = false;
-                        } else if (player2.getTile() == 7 && threeInARow.getTile7() != 0) {
+                        } else if (player2.getScInput() == 7 && threeInARow.getTile7() != 0) {
                             validMove2 = false;
-                        } else if (player2.getTile() == 8 && threeInARow.getTile8() != 0) {
+                        } else if (player2.getScInput() == 8 && threeInARow.getTile8() != 0) {
                             validMove2 = false;
-                        } else if (player2.getTile() == 9 && threeInARow.getTile9() != 0) {
+                        } else if (player2.getScInput() == 9 && threeInARow.getTile9() != 0) {
                             validMove2 = false;
                         } else {
                             validMove2 = true;
                         }
                     } while (!validMove2);
-                    if (player2.getTile() == 1 && threeInARow.getTile1() == 0){
-                        //gride.baseGrid7(player2);
+                    if (player2.getScInput() == 1 && threeInARow.getTile1() == 0){
                         tile1O();
-                    } if (player2.getTile() == 2 && threeInARow.getTile2() == 0){
+                        gride.printGrid(player2);
+                    } if (player2.getScInput() == 2 && threeInARow.getTile2() == 0){
                         tile2O();
-                    } if (player2.getTile() == 3 && threeInARow.getTile3() == 0){
+                        gride.printGrid(player2);
+                    } if (player2.getScInput() == 3 && threeInARow.getTile3() == 0){
                         tile3O();
-                    } if (player2.getTile() == 4 && threeInARow.getTile4() == 0){
+                        gride.printGrid(player2);
+                    } if (player2.getScInput() == 4 && threeInARow.getTile4() == 0){
                         tile4O();
-                    } if (player2.getTile() == 5 && threeInARow.getTile5() == 0){
+                        gride.printGrid(player2);
+                    } if (player2.getScInput() == 5 && threeInARow.getTile5() == 0){
                         tile5O();
-                    } if (player2.getTile() == 6 && threeInARow.getTile6() == 0){
+                        gride.printGrid(player2);
+                    } if (player2.getScInput() == 6 && threeInARow.getTile6() == 0){
                         tile6O();
-                    } if (player2.getTile() == 7 && threeInARow.getTile7() == 0){
-                        gride.baseGrid8(player2);
+                        gride.printGrid(player2);
+                    } if (player2.getScInput() == 7 && threeInARow.getTile7() == 0){
                         tile7O();
-                    } if (player2.getTile() == 8 && threeInARow.getTile8() == 0){
-                        gride.baseGrid8(player2);
+                        gride.printGrid(player2);
+                    } if (player2.getScInput() == 8 && threeInARow.getTile8() == 0){
                         tile8O();
-                    } if (player2.getTile() == 9 && threeInARow.getTile9() == 0){
-                        gride.baseGrid9(player2);
+                        gride.printGrid(player2);
+                    } if (player2.getScInput() == 9 && threeInARow.getTile9() == 0){
                         tile9O();
+                        gride.printGrid(player2);
                     } if (threeInARow.getTile8() + threeInARow.getTile7() + threeInARow.getTile9()  == 21 ) {
                         System.out.println(player2.getName() + " Wins the game");
                         win = true;
@@ -209,10 +208,11 @@ public class Game {
                 }
             } if (!win) {
                 System.out.println("Draw");
+                player1.addDraws();
+                player2.addDraws();
         }
-            player2.addTimesPLayed();
             player1.addTimesPLayed();
-
+            player2.addTimesPLayed();
     }
     public void showPlayers(){
         System.out.println(player1);
@@ -284,6 +284,7 @@ public class Game {
         threeInARow.setTile8(0);
         threeInARow.setTile9(0);
     }
+
 
 
 }
