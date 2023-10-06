@@ -1,20 +1,31 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
     Scanner sc = new Scanner(System.in);
-    Grid gride;
+    Grid grid;
     private boolean win;
     Player player1 = new Player("player1","X",0,0,0,0);
     Player player2 = new Player("player2","O",0,0,0,0);
     ThreeInARow threeInARow = new ThreeInARow(0,0,0,0,0,0,0,0,0);
     public Game() {
-        gride = new Grid(this);
+        grid = new Grid(this);
     }
+
+
     public void addPlayer() {
         System.out.println("Player1 what is your name:");
         player1.setName(sc.nextLine());
         System.out.println("Player2 what is your name");
         player2.setName(sc.nextLine());
+        System.out.println(player1);
+        System.out.println("");
+        System.out.println(player2);
+    }
+    public void playAgainstBot(){
+        System.out.println("Player1 what is your name:");
+        player1.setName(sc.nextLine());
+        player2.setName("Bot");
         System.out.println(player1);
         System.out.println("");
         System.out.println(player2);
@@ -28,8 +39,8 @@ public class Game {
                     do {
                         Scanner scanner = new Scanner(System.in);
                         System.out.println(player1.getName() + " please make your move: ");
-                        int chose1 = scanner.nextInt();
-                        player1.setScInput(chose1);
+                        int player1Input = scanner.nextInt();
+                        player1.setScInput(player1Input);
                         if (player1.getScInput() == 1 && threeInARow.getTile1() != 0) {
                             validMove = false;
                         } else if (player1.getScInput() == 2 && threeInARow.getTile2() != 0) {
@@ -54,31 +65,31 @@ public class Game {
                     } while (!validMove);
                     if (player1.getScInput() == 1 && threeInARow.getTile1() == 0  ){
                        tile1x();
-                        gride.printGrid(player1);
+                        grid.printGrid(player1);
                     } if (player1.getScInput() == 2 &&  threeInARow.getTile2() == 0 ){
                         tile2x();
-                        gride.printGrid(player1);
+                        grid.printGrid(player1);
                     } if (player1.getScInput() == 3 &&  threeInARow.getTile3() == 0 ){
                         tile3x();
-                        gride.printGrid(player1);
+                        grid.printGrid(player1);
                     } if (player1.getScInput() == 4 &&  threeInARow.getTile4() == 0 ){
                         tile4x();
-                        gride.printGrid(player1);
+                        grid.printGrid(player1);
                     }  if (player1.getScInput() == 5 &&  threeInARow.getTile5() == 0 ){
                         tile5x();
-                        gride.printGrid(player1);
+                        grid.printGrid(player1);
                     }  if (player1.getScInput() == 6 &&  threeInARow.getTile6() == 0 ){
                         tile6x();
-                        gride.printGrid(player1);
+                        grid.printGrid(player1);
                     }  if (player1.getScInput() == 7 &&  threeInARow.getTile7() == 0 ){
                         tile7x();
-                        gride.printGrid(player1);
+                        grid.printGrid(player1);
                     }  if (player1.getScInput() == 8 &&  threeInARow.getTile8() == 0 ){
                         tile8x();
-                        gride.printGrid(player1);
+                        grid.printGrid(player1);
                     }  if (player1.getScInput() == 9 && threeInARow.getTile9() == 0){
                         tile9x();
-                        gride.printGrid(player1);
+                        grid.printGrid(player1);
                     }  if (threeInARow.getTile8() + threeInARow.getTile7() + threeInARow.getTile9() == 6 ) {
                         System.out.println(player1.getName() + " Wins the game");
                         win = true;
@@ -115,10 +126,15 @@ public class Game {
                 } else {
                     boolean validMove2;
                     do {
+                        if (player2.getName() == "Bot") {
+                            Random random = new Random();
+                            int n = random.nextInt(10);
+                            player2.setScInput(n);
+                        }else{
                         Scanner scanner = new Scanner(System.in);
                         System.out.println(player2.getName() + " please make your move: ");
-                        int chose2 = scanner.nextInt();
-                        player2.setScInput(chose2);
+                        int player2Input = scanner.nextInt();
+                        player2.setScInput(player2Input);}
                         if (player2.getScInput() == 1 && threeInARow.getTile1() != 0) {
                             validMove2 = false;
                         } else if (player2.getScInput() == 2 && threeInARow.getTile2() != 0) {
@@ -143,31 +159,31 @@ public class Game {
                     } while (!validMove2);
                     if (player2.getScInput() == 1 && threeInARow.getTile1() == 0){
                         tile1O();
-                        gride.printGrid(player2);
+                        grid.printGrid(player2);
                     } if (player2.getScInput() == 2 && threeInARow.getTile2() == 0){
                         tile2O();
-                        gride.printGrid(player2);
+                        grid.printGrid(player2);
                     } if (player2.getScInput() == 3 && threeInARow.getTile3() == 0){
                         tile3O();
-                        gride.printGrid(player2);
+                        grid.printGrid(player2);
                     } if (player2.getScInput() == 4 && threeInARow.getTile4() == 0){
                         tile4O();
-                        gride.printGrid(player2);
+                        grid.printGrid(player2);
                     } if (player2.getScInput() == 5 && threeInARow.getTile5() == 0){
                         tile5O();
-                        gride.printGrid(player2);
+                        grid.printGrid(player2);
                     } if (player2.getScInput() == 6 && threeInARow.getTile6() == 0){
                         tile6O();
-                        gride.printGrid(player2);
+                        grid.printGrid(player2);
                     } if (player2.getScInput() == 7 && threeInARow.getTile7() == 0){
                         tile7O();
-                        gride.printGrid(player2);
+                        grid.printGrid(player2);
                     } if (player2.getScInput() == 8 && threeInARow.getTile8() == 0){
                         tile8O();
-                        gride.printGrid(player2);
+                        grid.printGrid(player2);
                     } if (player2.getScInput() == 9 && threeInARow.getTile9() == 0){
                         tile9O();
-                        gride.printGrid(player2);
+                        grid.printGrid(player2);
                     } if (threeInARow.getTile8() + threeInARow.getTile7() + threeInARow.getTile9()  == 21 ) {
                         System.out.println(player2.getName() + " Wins the game");
                         win = true;

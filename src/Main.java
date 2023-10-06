@@ -5,12 +5,13 @@ public class Main {
         Game game = new Game();
         Scanner sc = new Scanner(System.in);
         String meny = "";
-        while (!meny.equals("4")) {
+        while (!meny.equals("5")) {
             System.out.println("""
                     1.Name players
                     2.Play Three in a row
                     3.Show Stats 
-                    4.End the game
+                    4.Play Against Bot
+                    5.End the game
                     """);
             meny = sc.nextLine();
             if (meny.equals("1")){
@@ -23,6 +24,9 @@ public class Main {
                 game.showPlayers();
             }
             if (meny.equals("4")){
+                game.playAgainstBot();
+            }
+            if (meny.equals("5")){
                 System.out.println("Game ended");
             }
         }

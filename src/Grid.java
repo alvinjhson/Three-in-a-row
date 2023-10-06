@@ -1,10 +1,8 @@
 public class Grid {
-    private Player[][] board;
     private Game game;
     private ThreeInARow threeInARow;
     public Grid(Game game) {
         this.game = game;
-        board = new Player[3][3];
         this.threeInARow = game.threeInARow;
     }
     public void printGrid(Player placeXO) {
