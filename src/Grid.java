@@ -1,11 +1,12 @@
 public class Grid {
     private Game game;
     private ThreeInARow threeInARow;
+
     public Grid(Game game) {
         this.game = game;
         this.threeInARow = game.threeInARow;
     }
-    public void printGrid(Player placeXO) {
+    public void printGrid() {
         int[] tiles = {
                 game.threeInARow.getTile1(),
                 game.threeInARow.getTile2(),
@@ -37,14 +38,9 @@ public class Grid {
             } else {
                 System.out.print("| ");
             }
+            if (i == 8) {
+                System.out.println();
+            }
         }
     }
-
-
-
-
-
-
-
-
 }

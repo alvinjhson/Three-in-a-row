@@ -5,6 +5,7 @@ public class Player {
     private int timesPlayed;
     private int draw;
     private int scInput;
+
     public Player(String name, String xo, int wins, int timesPlayed , int scInput,int draw) {
         this.name = name;
         this.xo = xo;
@@ -33,6 +34,15 @@ public class Player {
     }
     public void addDraws(){
         this.draw++;
+    }
+    public void setWins(int wins) {
+        this.wins = wins;
+    }
+    public void setTimesPlayed(int timesPlayed) {
+        this.timesPlayed = timesPlayed;
+    }
+    public void setDraw(int draw) {
+        this.draw = draw;
     }
     @Override
     public String toString(){
