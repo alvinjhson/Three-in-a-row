@@ -18,7 +18,7 @@ public class Main {
                 game.addPlayer();
             }
             if (meny.equals("2")){
-                game.threeInARow1();
+                game.playThreeInARow();
             }
             if (meny.equals("3")){
                 game.showPlayers();

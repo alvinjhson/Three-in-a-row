@@ -14,6 +14,11 @@ public class Player {
         this.scInput = scInput;
         this.draw = draw;
     }
+
+    public String getXo() {
+        return xo;
+    }
+
     public void setScInput(int scInput) {
         this.scInput = scInput;
     }
